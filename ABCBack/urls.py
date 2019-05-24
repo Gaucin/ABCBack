@@ -15,7 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from .views import EventListView, EventDetailView, CategoryListView, EventListByCategoryView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^events/$', EventListView.as_view()),
+    url(r'^events/detail/(?P<pk>\d+)/$', EventDetailView.as_view()),
+    url(r'^events/byCategory/(?P<pk>[0-9]+)/$', CategoryListView.as_view()),
+    url(r'^catalog/categories/$', CategoryListView.as_view()),
 ]
