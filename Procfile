@@ -1,1 +1,1 @@
-web: web: gunicorn ABCBack.wsgi --log-file -
+web: gunicorn ABCBack.wsgi
