@@ -7,7 +7,7 @@ class Category(models.Model):
 
 class Event(models.Model):
     name = models.CharField(max_length=50)
-    category = models.ForeignKey(Category, related_name='category', on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, related_name='events', on_delete=models.CASCADE)
     place = models.CharField(max_length=60)
     address = models.CharField(max_length=100)
     initial_date = models.DateField()

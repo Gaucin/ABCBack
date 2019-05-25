@@ -1,5 +1,5 @@
 from rest_framework.generics import ListAPIView, ListCreateAPIView, RetrieveUpdateDestroyAPIView
-from .serializers import EventSerializer, EventDetailSerializer, CategorySerializer
+from .serializers import EventSerializer, EventListByCategorySerializer, CategorySerializer
 from .models import Event, Category
 
 
@@ -19,5 +19,7 @@ class CategoryListView(ListCreateAPIView):
 
 
 class EventListByCategoryView(ListAPIView):
-    queryset = Category.objects.all()
-    serializer_class = EventSerializer
+    serializer_class = EventListByCategorySerializer
+
+    def get_queryset(self):
+        return Category.objects.filter(pk=self.kwargs['pk'])

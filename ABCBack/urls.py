@@ -21,6 +21,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^events/$', EventListView.as_view()),
     url(r'^events/detail/(?P<pk>\d+)/$', EventDetailView.as_view()),
-    url(r'^events/byCategory/(?P<pk>[0-9]+)/$', CategoryListView.as_view()),
+    url(r'^events/byCategory/(?P<pk>[0-9]+)/$', EventListByCategoryView.as_view()),
     url(r'^catalog/categories/$', CategoryListView.as_view()),
 ]
